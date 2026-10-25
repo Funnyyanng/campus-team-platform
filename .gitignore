@@ -1,0 +1,13 @@
+**/node_modules/
+**/dist/
+**/target/
+**/uploads/
+.env
+.env.*
+!.env.example
+**/application-local.yml
+**/application-local.yaml
+*.log
+.DS_Store
+.idea/
+

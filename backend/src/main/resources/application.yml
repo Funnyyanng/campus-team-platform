@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: campus-team-platform
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+  datasource:
+    url: "${DB_URL:jdbc:mysql://localhost:3306/campus_team?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true}"
+    username: "${DB_USERNAME:campus_team}"
+    password: "${DB_PASSWORD}"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+  data:
+    redis:
+      host: "${REDIS_HOST:localhost}"
+      port: "${REDIS_PORT:6379}"
+      password: "${REDIS_PASSWORD:}"
+      database: 0
+      timeout: 3000ms
+
+server:
+  port: 8080
+
+jwt:
+  secret: "${JWT_SECRET}"
+  expiration: 604800000
+
+bootstrap:
+  admin-email: "${BOOTSTRAP_ADMIN_EMAIL:}"
+  admin-password: "${BOOTSTRAP_ADMIN_PASSWORD:}"
+
+email:
+  whitelist: "*.edu.cn"
+  code-expiration: 300
+
+file:
+  upload:
+    path: ./uploads
+    url-prefix: http://localhost:8080/uploads
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
